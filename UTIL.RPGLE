@@ -8,11 +8,9 @@
        end-pi;
 
        //- Variables
-
        dcl-s wFecha like(wFechaT);
 
        //- Process
-
        wFecha = %Char(InDate:*ISO);
 
        Return wFecha;
@@ -25,11 +23,9 @@
        end-pi;
 
        //- Variables
-
        dcl-s wTiempo like(wTiempoT);
 
        //- Process
-
        wTiempo = %Char(InTime:*hms);
 
        Return wTiempo;
@@ -37,19 +33,20 @@
 
      dcl-Proc FnErrorSQL Export;
        dcl-pi *n like(wErrorT);
-         InErrorSql like(werrorsqlT) Const;
+         InErrorSql like(wErrorSqlT) Const;
        end-pi;
 
-       dcl-s wmensaje like(wErrorT);
+       //- Variables
+       dcl-s wMsgErr like(wErrorT);
+
+       //- Process
          Select;
-           when InErrorSql = '00000' then
-                wmensaje = 'Exitoso' ;
-           when InErrorSql = '00100' then
-                wmensaje = 'No encontrado';
+           when InErrorSql = '0000000' then
+                wMsgErr = 'Successful';
            other 
-                wmensaje = 'No definido';         
+                wMsgErr = 'Se produjo el error SQL' + InErrorSql;         
        endsl;
       
-       Return wmensaje;
+       Return wMsgErr;
 
      end-Proc; 

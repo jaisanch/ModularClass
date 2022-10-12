@@ -1,7 +1,6 @@
 **free
 
     //- Dictionary
-
     dcl-Ds DsUsuarioT Qualified Template;
       Nombre like(wNombreT);
       Id like(wIdT);
@@ -16,10 +15,9 @@
     dcl-s wTiempoT varchar(100) Template;
     dcl-s wSqlStateT char(5) Template;
     dcl-s wErrorT Varchar(100) Template 
-    dcl-s werrorsqlT Varchar(7) Template    
+    dcl-s wErrorSqlT Varchar(7) Template    
 
     //- Prototypes
-
     dcl-pr PrInsertar;
       parUsuario likeDs(DsUsuarioT) Const;
       parSqlState like(wSqlStateT);
@@ -40,5 +38,5 @@
     end-pr;  
 
     dcl-pr FnErrorSQL like(wErrorT);
-      parErrorsql like(werrorsqlT) Const;
+      parErrorsql like(wErrorSqlT) Const;
     end-pr;

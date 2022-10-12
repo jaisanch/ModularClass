@@ -11,15 +11,12 @@
       end-pi;
 
       //- Structures ***
-
       dcl-Ds Dsusuario likeDs(DsusuarioT);
 
       //- Variables
-
       dcl-s wSqlState like(wSqlStateT); 
 
       //- Process
-
       Dsusuario.Nombre = InNombre;
       Dsusuario.Id = InId;
       DsUsuario.Fecha = FnFormatoFecha(%Date());
