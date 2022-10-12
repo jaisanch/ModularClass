@@ -45,7 +45,7 @@
                 wMsgErr = 'Successful';
            other 
                 wMsgErr = 'Se produjo el error SQL' + InErrorSql;         
-       endsl;
+         endsl;
       
        Return wMsgErr;
 
