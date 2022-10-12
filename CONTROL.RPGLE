@@ -7,9 +7,10 @@
         InNombre like(wNombreT) Const;
         InId like(wIdT) Const;
         OutMsgId like(wMsgId);
+        OutMsgDs like(wErrorT);
       end-pi;
 
-      //- Structures
+      //- Structures ***
 
       dcl-Ds Dsusuario likeDs(DsusuarioT);
 
@@ -25,5 +26,7 @@
       DsUsuario.Tiempo = FnFormatoTiempo(%Time());
 
       PrInsertar(DsUsuario:wSqlState);
+      OutMsgId = wSqlState;
+      OutMsgDs = FnErrorSQL(wSqlState);      
 
     end-Proc;
